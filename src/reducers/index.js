@@ -3,5 +3,5 @@ import { combineReducers } from 'redux';
 
 
 export default combineReducers({
-    laptopsReducer 
+   laptops: laptopsReducer 
 })
