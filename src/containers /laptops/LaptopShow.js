@@ -4,7 +4,7 @@ export class LaptopShow extends Component {
     render() {
         return (
             <div>
-                <h3> Show character</h3>
+                <h3> Show Laptop</h3>
             </div>
         )
     }
