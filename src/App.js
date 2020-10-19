@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
-
+import { connect } from 'react-redux'
 import Home from './laptops/Home';
 import NavBar from './components/styles/NavBar'
 import LaptopForm from './containers /laptops/LaptopForm';
@@ -16,6 +16,8 @@ class App extends Component {
   componentDidMount () {
     this.props.fetchLaptops()
   }
+
+  
   render () {
     return (
       <Router>
@@ -36,4 +38,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default connect(null, {fetchLaptops} )(App);
