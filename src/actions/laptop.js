@@ -1,5 +1,7 @@
 const BASE_URL = 'http://localhost:3001/'
 const LOADING = {type: "LOADING"}
+
+
 export const fetchLaptops = () => {
 
     return(dispatch) => {
@@ -10,3 +12,4 @@ export const fetchLaptops = () => {
         .then(laptops => dispatch({ type: "LOAD_LAPTOPS", laptops }))
     }
 }
+

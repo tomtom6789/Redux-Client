@@ -11,6 +11,8 @@ import LaptopShow from './containers /laptops/LaptopShow';
 import { fetchLaptops } from './actions/laptop'
 
 
+
+
 class App extends Component {
   
   componentDidMount () {
