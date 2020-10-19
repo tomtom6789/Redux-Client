@@ -17,7 +17,7 @@ class App extends Component {
     this.props.fetchLaptops()
   }
 
-  
+
   render () {
     return (
       <Router>
