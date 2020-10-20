@@ -1,5 +1,4 @@
-// const BASE_URL = 'http://localhost:3001/'
-const LOADING = {type: "LOADING"}
+// const LOADING = {type: "LOADING"}
 
 
 
@@ -7,29 +6,33 @@ const LOADING = {type: "LOADING"}
 export const fetchLaptops = () => {
 
     return(dispatch) => {
-        dispatch(LOADING);
+        // dispatch(LOADING);
 
         fetch('http://localhost:3001/laptops')
         .then(resp => resp.json())
         .then(laptops => dispatch({ type: "LOAD_LAPTOPS", laptops }))
     }
 }
+ 
 
-export const createLaptop = (LaptopData, history) => {
+
+export const createLaptop = (laptopData, history) => {
     return dispatch => {
+    
         fetch('http://localhost:3001/laptops', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }, 
-            body: JSON.stringify(LaptopData)
+            body: JSON.stringify(laptopData)
         })
         .then(resp => resp.json())
         .then( laptop => {
             dispatch({ type: "ADD_LAPTOP", laptop })
-            history.push('/laptops') 
+            history.push('/laptops')
         })
     }
 }
+
 
