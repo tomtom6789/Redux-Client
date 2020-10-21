@@ -1,26 +1,26 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-// import { makeStyles } from '@material-ui/core/styles';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Button from '@material-ui/core/Button';
-// import { makeStyles } from '@material-ui/core/styles';
 
-// const useStyles = makeStyles({
-//     root: {
-//       color: 'white',
-//     },
-//   });
-
-
+const link = {
+    width: "100px",
+    padding: "12px",
+    margin: "0 6px 6px",
+    textDecoration: "none",
+    color: "black",
+    
+    
+}
 export const NavBar = () => {
         return (
             <nav>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" exact style={link} activeStyle={{ background: "tan" }}>Home</NavLink>
+                <NavLink to="/about" exact style={link} activeStyle={{ background: "tan" }}>About</NavLink>
                 <ul>
-                    <li><NavLink to='/laptops'>Laptops</NavLink></li>
-                    <li><NavLink to='/laptops/new'>Create a Laptop</NavLink></li>
+               <li><NavLink to='/laptops'  exact style={link} activeStyle={{ background: "tan" }}>Laptops</NavLink></li>
+               <br></br>
+               <li><NavLink to='/laptops/new'  exact style={link} activeStyle={{ background: "tan" }}>Create a Laptop</NavLink></li>
+
                 </ul>
             </nav>
         )
