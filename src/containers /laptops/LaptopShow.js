@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 
 
+
 export class LaptopShow extends Component {
 
     state = {
@@ -43,5 +44,5 @@ const mapStatetoProps = state => {
 }
 
 
-export default connect(mapStatetoProps, null)(LaptopShow)
+export default connect(mapStatetoProps)(LaptopShow)
 

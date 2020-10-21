@@ -8,7 +8,6 @@ export class LaptopList extends Component {
         if(this.props.loading){
             return <div>Loading...</div>
         } else {
-            // console.log(this.props.laptops)
             const laptops = this.props.laptops.map((laptop, i) => {
                 return <Laptopcard key={i} laptop={laptop} />
             })
@@ -25,6 +24,8 @@ export class LaptopList extends Component {
     }
 }
 
+
+
 const mapStateToProps = state => {
     return {
         laptops: state.laptopsReducer.laptops,
@@ -32,6 +33,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps) (LaptopList)
+export default connect(mapStateToProps, null) (LaptopList)
 
 
