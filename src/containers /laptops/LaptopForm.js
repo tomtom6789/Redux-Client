@@ -21,6 +21,7 @@ export class LaptopForm extends Component {
         }
 
         this.props.createLaptop(laptop, this.props.history)
+ 
 
     }
 
