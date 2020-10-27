@@ -19,7 +19,8 @@ export const fetchLaptops = () => {
 export const createLaptop = (laptopData, history) => {
 
     return dispatch => {
-        
+        dispatch(LOADING);
+
         fetch('http://localhost:3001/laptops', {
             method: "POST",
             headers: {
@@ -30,7 +31,7 @@ export const createLaptop = (laptopData, history) => {
         })
         .then(resp => resp.json())
         .then( laptop => {
-            console.log(laptop)
+            // console.log(laptop)
             dispatch({ type: "ADD_LAPTOP", laptop })
             history.push('/laptops')
         })
@@ -38,4 +39,22 @@ export const createLaptop = (laptopData, history) => {
 }
 
 
+export const deleteLaptop = (id) => {
+
+
+    return dispatch => {
+        dispatch(LOADING);
+
+        dispatch({type: 'DELETING_LAPTOP'})
+        fetch(`http://localhost:3001/laptops/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(() => dispatch({type: 'LAPTOP_DELETED', payload: id}))
+        
+    }
+}
 
