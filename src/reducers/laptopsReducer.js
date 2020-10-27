@@ -12,8 +12,9 @@ export default (state = initialState, action) => {
             return {...state, loading:false, laptops: action.laptops}
         case "ADD_LAPTOP":
             return {...state, loading:false, laptops: [...state.laptops, action.laptop]}
-        // case "DELETE_LAPTOP":
-        //     return {...state, loading:false, laptop: [...state.laptops.filter(laptop => `${laptop.id}` !== action.payload)]}
+        case "LAPTOP_DELETED":
+            // debugger;
+            return {...state, loading:false, laptops: [...state.laptops.filter(laptop => `${laptop.id}` !== action.payload)]}
         default: 
             return state;
     }
