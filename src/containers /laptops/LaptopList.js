@@ -1,30 +1,65 @@
 import React, { Component } from 'react'
 import Laptopcard from '../../components/laptops/LaptopCard';
 import { connect } from 'react-redux'
-
+import Search from '../../laptops/Search'
+import { deleteLaptop } from '../../actions/laptop';
 export class LaptopList extends Component {
-    render() {
 
-        if(this.props.loading){
-            return <div>Loading...</div>
+
+    state = {
+        search: "",
+    }
+    
+  
+
+    renderLaptopCards() {
+        if (this.props.loading) {
+            return <h2>LOADING Laptops....</h2>;
+          }
+
+        let displayedLaptops
+        if (this.state.search) {
+            displayedLaptops = this.props.laptops.filter((laptop) =>
+            laptop.name.toLowerCase().includes(this.state.search.toLowerCase())
+            );
         } else {
-            const laptops = this.props.laptops.map((laptop, i) => {
-                return <Laptopcard key={i} laptop={laptop} />
-            })
+            displayedLaptops = this.props.laptops;
+        }
+        return displayedLaptops.map((laptop) => {
+            return <Laptopcard laptop={laptop}  id={laptop.id} deleteLaptop={this.handleDelete}/>;
+        });
+    }
+
+    handleDelete = (event) =>{
+        this.props.deleteLaptop(event.target.id)
+     }
+
+
+    handleSearchChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+          [name]: value,
+        });
+      };
+
+
+
+    render() {
             return (
                 <div>
+                    <Search
+                    search={this.state.search}
+                    handleChange = {this.handleSearchChange}
+                     />
                     <h3> Here is list of laptop</h3>
                     <ul>
-                        { laptops }
+                        {this.renderLaptopCards()}
                     </ul>
                 </div>
             )
         }
-      
     }
-}
-
-
 
 const mapStateToProps = state => {
     return {
@@ -33,6 +68,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null) (LaptopList)
+export default connect(mapStateToProps, {deleteLaptop}) (LaptopList)
 
 
