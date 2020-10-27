@@ -8,7 +8,7 @@ export class LaptopShow extends Component {
 
     state = {
         laptop: {}, 
-        loading: true 
+        loading: true, 
     }
 
     componentDidMount () {
@@ -16,7 +16,7 @@ export class LaptopShow extends Component {
         if(laptop)
         this.setState ({
             laptop, 
-            loading: false
+            loading: false,
         })
     }
 
