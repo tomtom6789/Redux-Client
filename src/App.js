@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
+import "./App.css";
 
 import { connect } from 'react-redux'
 import Home from './laptops/Home';
 import About from './laptops/About';
 import Footer from './laptops/Footer'
-import NavBar from './components/styles/NavBar'
+import {Navigation} from './components/styles/NavBar'
 import LaptopForm from './containers /laptops/LaptopForm';
 import LaptopList from './containers /laptops/LaptopList';
 import LaptopShow from './containers /laptops/LaptopShow';
@@ -22,11 +22,13 @@ class App extends Component {
   }
 
 
+
+
   render () {
     return (
       <Router>
-        <div className="App">
-          <NavBar />
+
+        <Navigation/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
@@ -34,9 +36,9 @@ class App extends Component {
           <Route exact path='/laptops/new' component={LaptopForm}/>
           <Route exact path='/laptops/:id' component={LaptopShow}/>
           <Route render={(props) => <div> Page loading </div>} />
-         
         </Switch>
-      </div>
+     
+
         <Footer />
       </Router>
     );

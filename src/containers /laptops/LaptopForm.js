@@ -35,8 +35,8 @@ export class LaptopForm extends Component {
     render() {
         return (
             <div>
-                <h3> Create Charater </h3>
-                <form onSubmit={this.handleSubmit.bind(this)}>
+                <h3> Create a Laptop </h3>
+                <form onSubmit={this.handleSubmit.bind(this)} className="form">
                     <div>
                         <label htmlFor="name">Name: </label>
                         <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} required></input>

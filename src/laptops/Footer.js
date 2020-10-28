@@ -3,8 +3,8 @@ import React from 'react';
 
 export const Footer = () => {
     return (
-        <div className="Footer">
-            <p className="FooterContent"> © Copyright 2020 </p>
+        <div className="footer">
+            <p > © Copyright 2020 </p>
         </div>
     )
 }
